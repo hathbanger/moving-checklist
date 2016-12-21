@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { 
-  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS, FETCH_SUCCESS
+  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS, FETCH_SUCCESS, COMPLETE_REQUEST, COMPLETE_SUCCESS
 } from './actions'
 
 // The auth reducer. The starting state sets authentication

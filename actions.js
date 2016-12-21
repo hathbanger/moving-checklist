@@ -28,6 +28,12 @@ export const APPROVE_FAILURE = 'APPROVE_FAILURE'
 
 
 
+export const COMPLETE_REQUEST = 'COMPLETE_REQUEST'
+export const COMPLETE_SUCCESS = 'COMPLETE_SUCCESS'
+export const COMPLETE_FAILURE = 'COMPLETE_FAILURE'
+
+
+
 export const DISAPPROVE_REQUEST = 'DISAPPROVE_REQUEST'
 export const DISAPPROVE_SUCCESS = 'DISAPPROVE_SUCCESS'
 export const DISAPPROVE_FAILURE = 'DISAPPROVE_FAILURE'
@@ -256,6 +262,47 @@ function searchSuccess(creds) {
 function searchFailure(creds) {
   return {
     type: SEARCH_FAILURE,
+    isFetching: false,
+    isAuthenticated: true
+  }
+}
+
+
+
+
+// Uses the API middlware to get a quote
+export function completeTask(creds) {
+  let config = {
+    method: 'POST'
+  }
+  return dispatch => {
+    console.log("completing request")
+    // dispatch(approveRequest(creds))
+    // console.log('http://localhost:1323/post/approve/' + creds, config)
+    return dispatch(completeSuccess(creds))
+  }
+}
+
+
+function completeRequest() {
+  return {
+    type: COMPLETE_REQUEST,
+    isFetching: true,
+    isAuthenticated: true
+  }
+}
+
+function completeSuccess(creds) {
+  return {
+    type: COMPLETE_SUCCESS,
+    isFetching: false,
+    isAuthenticated: true
+  }
+}
+
+function completeFailure(creds) {
+  return {
+    type: COMPLETE_FAILURE,
     isFetching: false,
     isAuthenticated: true
   }
