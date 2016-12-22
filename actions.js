@@ -1,16 +1,15 @@
 
-
+import update from 'immutability-helper';
 export const COMPLETE_TASK_SUCCESS = 'COMPLETE_TASK_SUCCESS'
 export const COMPLETE_TASK_ATTEMPT = 'COMPLETE_TASK_ATTEMPT'
 
 
 
-function completeTaskAttempt(tasks, task){
-	console.log('here are the tasks in completeTaskAttempt: ', tasks)
+function toggleTaskAttempt(tasks, task, action){
+	const newTasksArray = update(tasks, {[task]: {done: {$set: action}}})
   return {
     type: COMPLETE_TASK_ATTEMPT,
-    tasks: tasks,
-    task: task
+    tasks: newTasksArray
   }
 }
 
@@ -24,6 +23,13 @@ function completeTaskSuccess(tasks){
 // // Uses the API middlware to get a quote
 export function completeTask(tasks, task) {
   return dispatch => {
-    return dispatch(completeTaskAttempt(tasks, task))
+  	let action = tasks[task].done ? false : true
+  	console.log('action', tasks[task].done)
+    let attempt = dispatch(toggleTaskAttempt(tasks, task, action))
+
+    if(attempt.tasks){
+    	
+    	return dispatch(completeTaskSuccess(attempt.tasks))
+    }
   }
 }

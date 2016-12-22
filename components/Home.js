@@ -6,12 +6,12 @@ import CheckListContainer from '../containers/CheckListContainer'
 export default class Home extends Component {
 
   render() {
-    const { dispatch, errorMessage } = this.props
+    const { dispatch, errorMessage, tasks } = this.props
     return (
       <div className="container">
         <div className="jumbotron">
             <div>
-              <CheckListContainer dispatch={dispatch} />
+              <CheckListContainer checkBoxes={this.props.tasks} dispatch={dispatch} />
             </div>          
         </div>
       </div>
@@ -21,6 +21,5 @@ export default class Home extends Component {
 }
 
 Home.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string
+  dispatch: PropTypes.func.isRequired
 }

@@ -5,29 +5,23 @@ import { completeTask } from '../actions'
 import CheckBox from '../components/Checkbox'
 
 class CheckListContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      checkBoxes: [{"item":"TV", "phone":"1234561234", "done": false}, {"item":"Phone", "phone":"1234561234", "done": true}, {"item":"Internet", "phone":"1234561234", "done": false}, {"item":"Best Bundle", "phone":"1234561234", "done": true}, {"item":"GIVE AWAY", "phone":"1234561234", "done": true}, {"item":"Security", "phone":"1234561234", "done": true}, {"item":"Gas", "phone":"1234561234", "done": true}, {"item":"Electricity", "phone":"1234561234", "done": true}]
-    }
-  }
+
 
 
 
   render() {
-    const { dispatch } = this.props
-    let checkBoxes = this.state.checkBoxes
-
+    const { dispatch, checkBoxes } = this.props
+            console.log('checkBoxes from the container', checkBoxes)
     return (
       <div>
         <div className="form-group">
           {checkBoxes.map(function(checkbox, index){
+            console.log('the checkbox from the container', checkbox)
               return (
                 <CheckBox
                 key={ index }
                 indicator={ index }
                 checkbox={checkbox}
-                dispatch={dispatch}
                 completeTask={() => dispatch(completeTask(checkBoxes, index)) }
                 />)        
             })} 

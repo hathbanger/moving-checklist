@@ -8,19 +8,13 @@ import {
 function completeTask(state = {
   tasks: []
 }, action) {
-  console.log('state:', state)
-  let taskId = action.task
+
   switch (action.type) {
     case  COMPLETE_TASK_SUCCESS:
       return { ...state, tasks: action.tasks }
+
     case  COMPLETE_TASK_ATTEMPT:
-      return update(state, 
-        tasks: { 
-          [taskId]: {
-            done: {$set: true}
-          }
-        }
-      )
+      return { ...state, tasks: action.tasks }
     default:
       return state
   }
