@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { completeTask } from '../actions'
+import { toggleTask } from '../actions'
 // import SignUp from '../components/SignUp'
 
 import CheckBox from '../components/Checkbox'
@@ -16,13 +16,12 @@ class CheckListContainer extends Component {
       <div>
         <div className="form-group">
           {checkBoxes.map(function(checkbox, index){
-            console.log('the checkbox from the container', checkbox)
               return (
                 <CheckBox
                 key={ index }
                 indicator={ index }
                 checkbox={checkbox}
-                completeTask={() => dispatch(completeTask(checkBoxes, index)) }
+                completeTask={() => dispatch(toggleTask(checkBoxes, index)) }
                 />)        
             })} 
         </div>

@@ -13,7 +13,8 @@ function toggleTaskAttempt(tasks, task, action){
   }
 }
 
-function completeTaskSuccess(tasks){
+function toggleTaskSuccess(tasks){
+  localStorage.setItem("username", "John");
   return {
     type: COMPLETE_TASK_SUCCESS,
     tasks: tasks
@@ -21,7 +22,7 @@ function completeTaskSuccess(tasks){
 }
 
 // // Uses the API middlware to get a quote
-export function completeTask(tasks, task) {
+export function toggleTask(tasks, task) {
   return dispatch => {
   	let action = tasks[task].done ? false : true
   	console.log('action', tasks[task].done)
@@ -29,7 +30,7 @@ export function completeTask(tasks, task) {
 
     if(attempt.tasks){
     	
-    	return dispatch(completeTaskSuccess(attempt.tasks))
+    	return dispatch(toggleTaskSuccess(attempt.tasks))
     }
   }
 }

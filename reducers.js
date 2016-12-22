@@ -4,11 +4,12 @@ import {
   COMPLETE_TASK_SUCCESS, COMPLETE_TASK_ATTEMPT
 } from './actions'
 
+const initialState = {
+     tasks: [{"item":"TV", "phone":"1234561234", "done": false}, {"item":"Phone", "phone":"1234561234", "done": true}, {"item":"Internet", "phone":"1234561234", "done": false}, {"item":"Best Bundle", "phone":"1234561234", "done": true}, {"item":"GIVE AWAY", "phone":"1234561234", "done": true}, {"item":"Security", "phone":"1234561234", "done": true}, {"item":"Gas", "phone":"1234561234", "done": true}, {"item":"Electricity", "phone":"1234561234", "done": true}]
+   }
+ 
 
-function completeTask(state = {
-  tasks: []
-}, action) {
-
+const completeTask = (state = initialState, action) => {
   switch (action.type) {
     case  COMPLETE_TASK_SUCCESS:
       return { ...state, tasks: action.tasks }
@@ -25,5 +26,6 @@ function completeTask(state = {
 const taskCompleteReducer = combineReducers({
   completeTask
 })
+
 
 export default taskCompleteReducer
