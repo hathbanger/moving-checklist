@@ -1,50 +1,35 @@
 import React, { Component, PropTypes } from 'react'
-import { completeTask } from '../actions'
 
 
-export default class SearchBar extends Component {
-  handleSelection(e){
-    console.log('SELECTION')
-    console.log(e)
-    // let dispatch = this.props.dispatch
-    // dispatch(completeTask)
-  }
 
-  handleChange(e){
-    console.log('change!')
-    console.log(this.refs.password)
-  }
+export default class Checkbox extends Component {
   render() {
-    const { dispatch } = this.props
-    console.log(this.props.indicator)
+    const { dispatch, indicator, completeTask } = this.props
     return (
     	<div>
         <label className="custom-control custom-checkbox">
-          
           <input 
             type="checkbox"  
-            ref='password' 
-            onChange={(event) => this.handleChange(event)} 
-            onClick={(event) => this.handleSelection(event)} 
-            checked={this.props.checkbox.done}  
+            ref='password'
+            onClick={(event) => this.handleSelection(indicator)} 
             className="custom-control-input" />
 
-          <span className="custom-control-indicator">{this.props.checkbox.item}</span>
-          <span className="custom-control-description">{this.props.checkbox.phone}</span>
+          <p className="custom-control-indicator">{this.props.checkbox.item} - {this.props.checkbox.phone}</p>
         </label>
         </div>
     )
   }
 
-  handleClick(event) {
-    const searchTerm = this.refs.searchTerm.value.trim()
-    this.props.dispatch(search(searchTerm))
-  }  
+  handleSelection(e){
+    this.props.completeTask(e)
+  }
+
 }
 
-SearchBar.propTypes = {
+Checkbox.propTypes = {
+  completeTask: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
 
-             
+             //             checked={this.props.checkbox.done} 

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-// import { signUp } from '../actions'
+import { completeTask } from '../actions'
 // import SignUp from '../components/SignUp'
 
 import CheckBox from '../components/Checkbox'
@@ -12,20 +12,23 @@ class CheckListContainer extends Component {
     }
   }
 
+
+
   render() {
-    const { dispatch,  isAuthenticated, errorMessage } = this.props
+    const { dispatch } = this.props
+    let checkBoxes = this.state.checkBoxes
 
     return (
       <div>
         <div className="form-group">
-          {this.state.checkBoxes.map(function(checkbox, index){
-            console.log('heres the index', index)
+          {checkBoxes.map(function(checkbox, index){
               return (
                 <CheckBox
                 key={ index }
                 indicator={ index }
                 checkbox={checkbox}
-                dispatch={dispatch} 
+                dispatch={dispatch}
+                completeTask={() => dispatch(completeTask(checkBoxes, index)) }
                 />)        
             })} 
         </div>

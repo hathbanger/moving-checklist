@@ -5,7 +5,7 @@ import Home from '../components/Home'
 class App extends Component {
   
   render() {
-    const { dispatch, errorMessage } = this.props
+    const { dispatch  } = this.props
     
     return (
       <div>
@@ -18,20 +18,16 @@ class App extends Component {
 }
 
 App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string
+  dispatch: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
   
-  const { auth, postFetch } = state
-  const { isAuthenticated, errorMessage } = auth
-  const { posts } = postFetch
+  const { completeTask } = state
+  const { tasks } = completeTask
   
   return {
-    isAuthenticated,
-    posts,
-    errorMessage
+    tasks
   }
 }
 
