@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { toggleTask } from '../actions'
-// import SignUp from '../components/SignUp'
 
 import CheckBox from '../components/Checkbox'
 
@@ -9,17 +8,20 @@ class CheckListContainer extends Component {
     const { dispatch, checkBoxes } = this.props
     return (
       <div>
-        <div className="form-group">
-          {this.props.checkBoxes.map(function(checkbox, index){
-              return (
-                <CheckBox
-                key={ index }
-                indicator={ index }
-                checkbox={checkbox}
-                completeTask={() => dispatch(toggleTask(checkBoxes, index)) }
-                />)        
-            })} 
-        </div>
+      
+        {this.props.checkBoxes.map(function(checkbox, index){
+            return (
+              <li className="list-group-item">
+                <label  className="custom-control custom-checkbox">
+                  <CheckBox
+                    key={ index }
+                    indicator={ index }
+                    checkbox={checkbox}
+                    completeTask={() => dispatch(toggleTask(checkBoxes, index)) }/>
+                </label>
+              </li>    
+              )    
+          })}    
       </div>
     )
   }

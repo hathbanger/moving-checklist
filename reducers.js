@@ -1,15 +1,14 @@
 import { combineReducers } from 'redux'
-import update from 'immutability-helper';
 import { 
   TOGGLE_TASK_SUCCESS, TOGGLE_TASK_ATTEMPT
 } from './actions'
 
 const setLocalStorage = (state) => {localStorage.setItem("cyhList", JSON.stringify(state)); return state}
 const fetchLocalStorage = (key) => {return JSON.parse(localStorage.getItem(key))}
-
 const currentState = fetchLocalStorage("cyhList") ? fetchLocalStorage("cyhList") : setLocalStorage(initialState)
 
-const completeTask = (state = currentState, action) => {
+
+const toggleTask = (state = currentState, action) => {
   let updatedState = { ...state, tasks: action.tasks }
   switch (action.type) {
     case  TOGGLE_TASK_SUCCESS:
@@ -22,11 +21,8 @@ const completeTask = (state = currentState, action) => {
   }
 }
 
-// We combine the reducers here so that they
-// can be left split apart above
-const taskCompleteReducer = combineReducers({
-  completeTask
+const taskToggleReducer = combineReducers({
+  toggleTask
 })
 
-
-export default taskCompleteReducer
+export default taskToggleReducer
