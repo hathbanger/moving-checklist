@@ -7,6 +7,7 @@ export default class Home extends Component {
 
   render() {
     const { dispatch, errorMessage, tasks } = this.props
+    console.log(this.props)
     return (
       <div className="container">
         <div className="jumbotron">

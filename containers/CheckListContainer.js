@@ -11,11 +11,12 @@ class CheckListContainer extends Component {
 
   render() {
     const { dispatch, checkBoxes } = this.props
-            console.log('checkBoxes from the container', checkBoxes)
+            console.log('checkBoxes from the container', this.props.checkBoxes)
     return (
       <div>
         <div className="form-group">
           {checkBoxes.map(function(checkbox, index){
+            console.log('the checkbox from the container', checkbox)
               return (
                 <CheckBox
                 key={ index }
