@@ -6,14 +6,14 @@ export default class Checkbox extends Component {
     const { indicator, checked } = this.props
     return (
 
-<div>
+        <td>
           <input 
             type="checkbox"  
             onChange={(event) => this.handleSelection(indicator)} 
             className="custom-control-input css-checkbox " 
             checked={this.props.checkbox.done}
             />
-</div>
+        </td>
     
 
     )

@@ -11,47 +11,33 @@ class CheckListContainer extends Component {
 
     return (
       <div>
+        <Table className="text-center">  
+          <tbody>
+            {this.props.checkBoxes.map(function(checkbox, i){
+                return (
+                      <tr key={i + 1}>
+                        <CheckBox
+                          key={ i }
+                          indicator={ i }
+                          checkbox={checkbox}
+                          completeTask={() => dispatch(toggleTask(checkBoxes, i)) }/>
+                        <td key={i + 2}  colSpan="1">
+                          <h3>{checkbox.item}</h3>
+                        </td>
+                        <ProviderContainer 
+                          key={i + 3} 
+                          dispatch={dispatch} 
+                          checkBox={checkbox}
+                          selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
+                        <td key={i + 4}>
+                          <h3>{checkbox.providers[checkbox.selectedProvider].phone}</h3>
+                        </td>
+                      </tr>
+                  )    
+              })} 
 
-  <Table className="text-center">
-    <thead>
-      <tr className="text-center">
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>  
-    <tbody>
-
-        {this.props.checkBoxes.map(function(checkbox, i){
-            return (
-                  <tr key={i + 5}>
-                    <td key={i + 4}>
-                      <CheckBox
-                              key={ i }
-                              indicator={ i }
-                              checkbox={checkbox}
-                              completeTask={() => dispatch(toggleTask(checkBoxes, i)) }/>
-                    </td>
-                    <td key={i + 1}  colSpan="1">
-                      <h3>{checkbox.item}</h3>
-                    </td>
-                    <td>
-                      <ProviderContainer 
-                              key={i + 3} 
-                              dispatch={dispatch} 
-                              checkBox={checkbox}
-                              selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
-                    </td>
-                    <td key={i + 2}>
-                      <h3>{checkbox.providers[checkbox.selectedProvider].phone}</h3>
-                    </td>
-                  </tr>
-              )    
-          })} 
-
-    </tbody>
-  </Table>
+          </tbody>
+        </Table>
       </div>
     )
   }
