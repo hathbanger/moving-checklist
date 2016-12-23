@@ -23,7 +23,7 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   
-  const { toggleTask } = state
+  const { toggleTask, selectedProvider } = state
   const { tasks } = toggleTask
   
   return {

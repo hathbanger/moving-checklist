@@ -3,17 +3,53 @@
   <head>
     <title>Redux Auth</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"> -->
   <!-- Latest compiled and minified CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+
 <script type="text/javascript">
 var initialState = {
      tasks: [
-     {"item":"Phone", "providers": [{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"}], "done": true}, 
-     {"item":"Internet", "providers": [{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"}], "done": false}, 
-     {"item":"Security", "providers": [{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"}], "done": true}, 
-     {"item":"Gas", "providers": [{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"}], "done": true}, 
-     {"item":"Electric", "providers": [{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"},{"name": "Verizon", "phone":"1234561234"}], "done": true}]
+       {"item":"Phone",
+        "selectedProvider": 0, 
+        "providers": [{"name": "Verizon", "phone":"1234561234"},
+                      {"name": "Charter", "phone":"2222234345"},
+                      {"name": "ADT", "phone":"23332546537"},
+                      {"name": "Spectrum", "phone":"3428978787"},
+                      {"name": "Xfinity", "phone":"2347897777"}],
+        "done": true},
+       {"item":"Internet",
+        "selectedProvider": 0, 
+        "providers": [{"name": "Verizon", "phone":"1234561234"},
+                      {"name": "Charter", "phone":"2889090498"},
+                      {"name": "ADT", "phone":"12288905847"},
+                      {"name": "Spectrum", "phone":"1234561234"},
+                      {"name": "Xfinity", "phone":"11277385049"}],
+        "done": true},
+       {"item":"Security",
+        "selectedProvider": 0, 
+        "providers": [{"name": "Verizon", "phone":"1234561234"},
+                      {"name": "Charter", "phone":"2889090498"},
+                      {"name": "ADT", "phone":"12288905847"},
+                      {"name": "Spectrum", "phone":"9094837747"},
+                      {"name": "Xfinity", "phone":"2222234345"}],
+        "done": true},
+       {"item":"Gas",
+        "selectedProvider": 0, 
+        "providers": [{"name": "Verizon", "phone":"1234561234"},
+                      {"name": "Charter", "phone":"2889090498"},
+                      {"name": "ADT", "phone":"12288905847"},
+                      {"name": "Spectrum", "phone":"9094837747"},
+                      {"name": "Xfinity", "phone":"11277385049"}],
+        "done": true},
+       {"item":"Electric",
+        "selectedProvider": 0, 
+        "providers": [{"name": "Verizon", "phone":"2889090498"},
+                      {"name": "Charter", "phone":"1234561234"},
+                      {"name": "ADT", "phone":"12288905847"},
+                      {"name": "Spectrum", "phone":"23332546537"},
+                      {"name": "Xfinity", "phone":"11277385049"}],
+        "done": true}]
    }  
 </script>
   </head>
