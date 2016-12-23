@@ -1,23 +1,20 @@
 import React, { Component, PropTypes } from 'react'
-
-
-
+import divStyle from '../style'
 export default class Checkbox extends Component {
+
   render() {
     const { indicator, checked } = this.props
-    console.log("checkbox props", this.props.checkbox.done)
     return (
     	<div>
-        <label className="custom-control custom-checkbox">
+        <label  className="custom-control custom-checkbox">
           <input 
             type="checkbox"  
             onChange={(event) => this.handleSelection(indicator)} 
-            className="custom-control-input" 
+            className="custom-control-input css-checkbox " 
             checked={this.props.checkbox.done}
             />
-
-          <p className="custom-control-indicator">{this.props.checkbox.item} - {this.props.checkbox.phone}</p>
-        </label>
+            <span style={divStyle}> {this.props.checkbox.item} - {this.props.checkbox.phone}</span>
+          </label>
         </div>
     )
   }
@@ -31,6 +28,3 @@ export default class Checkbox extends Component {
 Checkbox.propTypes = {
   completeTask: PropTypes.func.isRequired
 }
-
-
-             //             checked={this.props.checkbox.done} 

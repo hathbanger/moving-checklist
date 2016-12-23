@@ -5,18 +5,12 @@ import { toggleTask } from '../actions'
 import CheckBox from '../components/Checkbox'
 
 class CheckListContainer extends Component {
-
-
-
-
   render() {
     const { dispatch, checkBoxes } = this.props
-            console.log('checkBoxes from the container', this.props.checkBoxes)
     return (
       <div>
         <div className="form-group">
-          {checkBoxes.map(function(checkbox, index){
-            console.log('the checkbox from the container', checkbox)
+          {this.props.checkBoxes.map(function(checkbox, index){
               return (
                 <CheckBox
                 key={ index }
