@@ -46,7 +46,7 @@ export function selectedProvider(tasks, task, providerId) {
 }
 
 function selectedProviderAttempt(tasks, task, providerId){
-	const newTasksArray = update(tasks, {[task]: {selectedProvider: {$set: providerId}}})
+	const newTasksArray = update(tasks, {[task]: {selected_provider: {$set: parseInt(providerId)}}})
   return {
     type: SELECT_PROVIDER_ATTEMPT,
     tasks: newTasksArray

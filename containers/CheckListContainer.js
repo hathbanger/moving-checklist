@@ -14,6 +14,7 @@ class CheckListContainer extends Component {
         <Table className="text-center">  
           <tbody>
             {this.props.checkBoxes.map(function(checkbox, i){
+              console.log('checkbox: ',checkbox)
                 return (
                       <tr key={i + 1}>
                         <CheckBox
@@ -30,12 +31,11 @@ class CheckListContainer extends Component {
                           checkBox={checkbox}
                           selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
                         <td key={i + 4}>
-                          <h3>{checkbox.providers[checkbox.selectedProvider].phone}</h3>
+                          <h3>{checkbox.providers[parseInt(checkbox.selected_provider)].phone}</h3>
                         </td>
                       </tr>
                   )    
               })} 
-
           </tbody>
         </Table>
       </div>

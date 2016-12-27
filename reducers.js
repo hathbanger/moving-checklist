@@ -12,12 +12,12 @@ const toggleTask = (state = currentState, action) => {
   let updatedState = { ...state, tasks: action.tasks }
   switch (action.type) {
     case  TOGGLE_TASK_SUCCESS:
-      // setLocalStorage(updatedState)
+      setLocalStorage(updatedState)
       return updatedState
     case  TOGGLE_TASK_ATTEMPT:
       return updatedState
     case  SELECT_PROVIDER_SUCCESS:
-      // setLocalStorage(updatedState)
+      setLocalStorage(updatedState)
       return updatedState
     case  SELECT_PROVIDER_ATTEMPT:
       return updatedState      

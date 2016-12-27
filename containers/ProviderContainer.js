@@ -10,7 +10,7 @@ class ProviderContainer extends Component {
     const { dispatch, checkBox } = this.props
     return (
       <td>
-        <DropdownButton onSelect={(event) => this.handleSelect(event)} bsSize="sm"  title={checkBox.providers[checkBox.selectedProvider].name} id="bg-nested-dropdown">
+        <DropdownButton onSelect={(event) => this.handleSelect(event)} bsSize="sm"  title={checkBox.providers[parseInt(checkBox.selected_provider)].name} id="bg-nested-dropdown">
           {checkBox.providers.map(function(provider, index){
             return(
               <MenuItem key={index} eventKey={index}>{provider.name}</MenuItem>
