@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { toggleTask, selectedProvider } from '../actions'
 import CheckBox from '../components/Checkbox'
 import ProviderContainer from './ProviderContainer'
-import { Table } from 'react-bootstrap';
+import { Table, Glyphicon } from 'react-bootstrap';
 import divStyle from '../style'
 
 class CheckListContainer extends Component {
@@ -23,7 +23,7 @@ class CheckListContainer extends Component {
                           indicator={ i }
                           checkbox={checkbox}
                           completeTask={() => dispatch(toggleTask(checkBoxes, i)) }/>
-                        <td key={i + 2}>
+                        <td key={i + 2} colSpan="2">
                           <h4 className="center-block">{checkbox.item}</h4>
                         </td>
                         <ProviderContainer 
@@ -32,7 +32,12 @@ class CheckListContainer extends Component {
                           checkBox={checkbox}
                           selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
                         <td key={i + 4}>
-                          <a href={`tel:${scrubbedPhone}`}><h4>{phone}</h4></a>
+                          <a href={`tel:${scrubbedPhone}`}>
+                            <h4>
+                              <Glyphicon glyph="earphone" className="earphoneGlyphicon" />
+                              {phone}
+                            </h4>
+                          </a>
                         </td>
                       </tr>
                   )    
