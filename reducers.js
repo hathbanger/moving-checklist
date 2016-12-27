@@ -4,6 +4,9 @@ import {
   SELECT_PROVIDER_SUCCESS, SELECT_PROVIDER_ATTEMPT
 } from './actions'
 
+
+
+
 const setLocalStorage = (state) => {localStorage.setItem("cyhList", JSON.stringify(state)); return state}
 const fetchLocalStorage = (key) => {return JSON.parse(localStorage.getItem(key))}
 const currentState = fetchLocalStorage("cyhList") ? fetchLocalStorage("cyhList") : setLocalStorage(initialState)
