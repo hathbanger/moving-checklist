@@ -8,7 +8,7 @@ import divStyle from '../style'
 class CheckListContainer extends Component {
   render() {
     const { dispatch, checkBoxes } = this.props
-
+    console.log('props!', this.props)
     return (
       <div>
         <Table className="text-center">  
