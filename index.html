@@ -10,7 +10,45 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 
 <script type="text/javascript">
+
+
+var initialState = { tasks: [{"item":"Phone","selected_provider":"0","providers":[{"name":"Verizon","phone":"1 (803) 649-1280"},{"name":"Xfinity","phone":"1 (233) 223-9884"},{"name":"Comcast","phone":"1 (948) 655-3344"}],"done":false},{"item":"Security","selected_provider":"0","providers":[{"name":"ADT","phone":"1 (988) 389-8499"},{"name":"Brinks","phone":"1 (888) 787-8889"}],"done":false},{"item":"Internet","selected_provider":"0","providers":[{"name":"Xfinity","phone":"1 (433) 432-2333"},{"name":"Comcast","phone":"1 (664) 099-0999"}],"done":false}]}  
+
 </script>
+<style type="text/css">
+  
+input[type=checkbox].css-checkbox {
+position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+padding-left:55px;
+height:50px; 
+display:inline-block;
+line-height:50px;
+background-repeat:no-repeat;
+background-position: 0 0;
+font-size:50px;
+vertical-align:middle;
+/*cursor:pointer;*/
+
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+background-position: 0 -50px;
+}
+label.css-label {
+background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_7a51de2f6764739a60a1c57b7736eb7f.png);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+  
+</style>
+
   </head>
   <body>
     <div id="app"></div>

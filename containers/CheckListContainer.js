@@ -14,7 +14,8 @@ class CheckListContainer extends Component {
         <Table className="text-center">  
           <tbody>
             {this.props.checkBoxes.map(function(checkbox, i){
-              console.log('checkbox: ',checkbox)
+                let phone = checkbox.providers[parseInt(checkbox.selected_provider)].phone
+                let scrubbedPhone = phone.replace(/[`~!@#$%^&*()_|+\-=÷¿?;:'",.<>\{\}\[\]\\\/\s]/gi, '');
                 return (
                       <tr key={i + 1}>
                         <CheckBox
@@ -22,8 +23,8 @@ class CheckListContainer extends Component {
                           indicator={ i }
                           checkbox={checkbox}
                           completeTask={() => dispatch(toggleTask(checkBoxes, i)) }/>
-                        <td key={i + 2}  colSpan="1">
-                          <h3>{checkbox.item}</h3>
+                        <td key={i + 2}>
+                          <h4 className="center-block">{checkbox.item}</h4>
                         </td>
                         <ProviderContainer 
                           key={i + 3} 
@@ -31,7 +32,7 @@ class CheckListContainer extends Component {
                           checkBox={checkbox}
                           selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
                         <td key={i + 4}>
-                          <h3>{checkbox.providers[parseInt(checkbox.selected_provider)].phone}</h3>
+                          <a href={`tel:${scrubbedPhone}`}><h4>{phone}</h4></a>
                         </td>
                       </tr>
                   )    
