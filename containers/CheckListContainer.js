@@ -10,7 +10,7 @@ class CheckListContainer extends Component {
     console.log('props!', this.props)
     return (
       <div>
-        <Table className="text-center">  
+        <Table className="table text-center">  
           <tbody>
             {this.props.checkBoxes.map(function(checkbox, i){
                 let phone = checkbox.providers[parseInt(checkbox.selected_provider)].phone
