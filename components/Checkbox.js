@@ -5,7 +5,6 @@ export default class Checkbox extends Component {
   render() {
     const { indicator, checked } = this.props
     return (
-
         <td>
           <input 
             type="checkbox"  
@@ -14,8 +13,6 @@ export default class Checkbox extends Component {
             checked={this.props.checkbox.done}
             />            
         </td>
-    
-
     )
   }
 
