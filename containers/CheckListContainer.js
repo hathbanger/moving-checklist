@@ -3,7 +3,6 @@ import { toggleTask, selectedProvider } from '../actions'
 import CheckBox from '../components/Checkbox'
 import ProviderContainer from './ProviderContainer'
 import { Table, Glyphicon } from 'react-bootstrap';
-import divStyle from '../style'
 
 class CheckListContainer extends Component {
   render() {

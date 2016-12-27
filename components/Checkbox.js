@@ -1,11 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import divStyle from '../style'
 export default class Checkbox extends Component {
-
-  styles(){
-    return {width: "100px", height: "100px", backgroundColor: "lightblue"}    
-  }
-
   render() {
     const { indicator, checked } = this.props
     return (

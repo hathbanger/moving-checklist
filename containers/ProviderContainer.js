@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import divStyle from '../style'
 import { ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 
 
