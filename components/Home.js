@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import CheckListContainer from '../containers/CheckListContainer'
-import { ProgressBar, Col, Jumbotron } from 'react-bootstrap';
+import { ProgressBar, Col } from 'react-bootstrap';
 
 
 export default class Home extends Component {
