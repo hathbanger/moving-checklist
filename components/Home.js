@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import CheckListContainer from '../containers/CheckListContainer'
-import { ProgressBar } from 'react-bootstrap';
+import { ProgressBar, Col, Jumbotron } from 'react-bootstrap';
 
 
 export default class Home extends Component {
@@ -17,16 +17,16 @@ export default class Home extends Component {
     const progress = (this.props.tasks.filter(this.isDone).length / this.props.tasks.length) * 100
     return (
       <div className="container">
-        <div className="col-md-12">
-          <div className="jumbotron">
-          { this.props.tasks &&
-            <div>
-            <ProgressBar now={progress} />         
-            <CheckListContainer checkBoxes={this.props.tasks} dispatch={dispatch} />
-            </div>
-          }
-          </div>       
-        </div>       
+        <Col md={12}>
+          <Jumbotron>
+            { this.props.tasks &&
+              <div>
+              <ProgressBar now={progress} />         
+              <CheckListContainer checkBoxes={this.props.tasks} dispatch={dispatch} />
+              </div>
+            }     
+          </Jumbotron>  
+        </Col>       
       </div>
     )
   }
