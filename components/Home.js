@@ -18,14 +18,12 @@ export default class Home extends Component {
     return (
       <div className="container">
         <Col md={12}>
-          <Jumbotron>
             { this.props.tasks &&
               <div>
               <ProgressBar now={progress} />         
               <CheckListContainer checkBoxes={this.props.tasks} dispatch={dispatch} />
               </div>
             }     
-          </Jumbotron>  
         </Col>       
       </div>
     )
