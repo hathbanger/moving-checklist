@@ -7,7 +7,7 @@ export default class Checkbox extends Component {
           <input 
             type="checkbox"  
             onChange={(event) => this.handleSelection(indicator)} 
-            className="custom-control-input css-checkbox " 
+            // className="custom-control-input css-checkbox " 
             checked={this.props.checkbox.done}
             id={"checkboxG" + indicator}
             /> 

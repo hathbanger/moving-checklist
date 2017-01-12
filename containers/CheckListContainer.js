@@ -7,7 +7,6 @@ import { Table, Glyphicon } from 'react-bootstrap';
 class CheckListContainer extends Component {
   render() {
     const { dispatch, checkBoxes } = this.props
-    console.log('props!', this.props)
     return (
       <div>
         <Table bordered condensed responsive className="text-center">  
@@ -15,6 +14,13 @@ class CheckListContainer extends Component {
             {this.props.checkBoxes.map(function(checkbox, i){
                 let phone = checkbox.providers[parseInt(checkbox.selected_provider)].phone
                 let scrubbedPhone = phone.replace(/[`~!@#$%^&*()_|+\-=÷¿?;:'",.<>\{\}\[\]\\\/\s]/gi, '');
+                let intTest = parseInt(scrubbedPhone)
+                let link = ""
+                let scrubbedLink = ""
+                if (!intTest) {
+                  link = phone
+                  scrubbedLink = link.split("?")[0]
+                }            
                 return (
                       <tr key={i + 1}>
                         <CheckBox
@@ -31,12 +37,22 @@ class CheckListContainer extends Component {
                           checkBox={checkbox}
                           selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
                         <td key={i + 4}>
-                          <a href={`tel:${scrubbedPhone}`}>
+                        {  !isNaN(intTest) &&
+                          <a href={`tel:${scrubbedPhone}`} onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
                             <h4>
-                              <Glyphicon glyph="earphone" className="earphoneGlyphicon" />
+                              <Glyphicon glyph="earphone" className="earphoneGlyphicon glyph" />
                               {phone}
                             </h4>
                           </a>
+                        }
+                        { isNaN(intTest) &&
+                          <a href={`${link}`} target="_blank" onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
+                            <h4>
+                              <Glyphicon glyph="link" className="linkGlyphicon glyph" />
+                              {scrubbedLink}
+                            </h4>
+                          </a>
+                        }
                         </td>
                       </tr>
                   )    

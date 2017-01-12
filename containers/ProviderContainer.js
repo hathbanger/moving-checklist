@@ -3,8 +3,6 @@ import { ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 
 
 class ProviderContainer extends Component {
-
-
   render() {
     const { dispatch, checkBox } = this.props
     return (
