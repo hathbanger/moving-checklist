@@ -18,8 +18,8 @@ class CheckListContainer extends Component {
                 let link = ""
                 let scrubbedLink = ""
                 if (!intTest) {
-                  link = phone.split("://")[1]
-                  console.log(link)
+                  link = phone
+                  linkArr = link.split("://")[1]
                   scrubbedLink = link.split("?")[0]
                 }            
                 return (
