@@ -41,7 +41,6 @@ class CheckListContainer extends Component {
                         {  !isNaN(intTest) &&
                           <a href={`tel:${scrubbedPhone}`} onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
                             <h4>
-                              <Glyphicon glyph="earphone" className="earphoneGlyphicon glyph" />
                               {phone}
                             </h4>
                           </a>
@@ -49,7 +48,6 @@ class CheckListContainer extends Component {
                         { isNaN(intTest) &&
                           <a href={`${link}`} target="_blank" onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
                             <h4>
-                              <Glyphicon glyph="link" className="linkGlyphicon glyph" />
                               {scrubbedLink}
                             </h4>
                           </a>
