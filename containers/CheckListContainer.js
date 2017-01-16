@@ -19,10 +19,13 @@ class CheckListContainer extends Component {
                 let scrubbedLink = ""
                 if (!intTest) {
                   link = phone
+                  console.log('link!', link)
                   var linkArr = link.split("://")[1]
+                  console.log('linkArr', linkArr)
                   scrubbedLink = linkArr.split("?")[0]
+                  console.log('scrubbedLink', scrubbedLink)
                   if (scrubbedLink[scrubbedLink.length - 1] == "/"){
-                    scrubbedLink = scrubbedLink.slice(scrubbedLink.length - 1, scrubbedLink.length)
+                    scrubbedLink = scrubbedLink.slice(0, scrubbedLink.length - 1)
                   }
                 }            
                 return (
