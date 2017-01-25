@@ -5,12 +5,16 @@ import { ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 class ProviderContainer extends Component {
   render() {
     const { dispatch, checkBox } = this.props
+    let selectedProviderName = checkBox.providers[parseInt(checkBox.selected_provider)].name
+    if(selectedProviderName.length > 10){
+      selectedProviderName = selectedProviderName.substring(0, 7) + "..."
+    }    
     return (
       <td>
         <DropdownButton 
           onSelect={(event) => this.handleSelect(event)} 
           bsSize="lg"  
-          title={checkBox.providers[parseInt(checkBox.selected_provider)].name} 
+          title={selectedProviderName} 
           id="bg-nested-dropdown">
           {checkBox.providers.map(function(provider, index){
             return(
