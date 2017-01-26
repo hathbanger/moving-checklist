@@ -11,7 +11,7 @@ class ProviderContainer extends Component {
     }        
     return (
       <td>
-      <Dropdown block>
+      <Dropdown id={checkBox.item} block vertical>
         <Dropdown.Toggle block>
           {checkBox.providers[parseInt(checkBox.selected_provider)].name}
         </Dropdown.Toggle>  

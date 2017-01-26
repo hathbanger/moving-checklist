@@ -51,7 +51,7 @@ class CheckListContainer extends Component {
                         { isNaN(intTest) &&
                           <a href={`${link}`} target="_blank" onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
                             <h6>
-                              {scrubbedLink}
+                              Order Now
                             </h6>
                           </a>
                         }
