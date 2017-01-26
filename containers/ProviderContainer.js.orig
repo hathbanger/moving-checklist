@@ -8,15 +8,23 @@ class ProviderContainer extends Component {
     let selectedProviderName = checkBox.providers[parseInt(checkBox.selected_provider)].name
     if(selectedProviderName.length > 10){
       selectedProviderName = selectedProviderName.substring(0, 7) + "..."
-    }        
+    }    
     return (
       <td>
+<<<<<<< HEAD
       <Dropdown block>
         <Dropdown.Toggle block>
           {checkBox.providers[parseInt(checkBox.selected_provider)].name}
         </Dropdown.Toggle>  
         <Dropdown.Menu
         onSelect={(event) => this.handleSelect(event)} >           
+=======
+        <DropdownButton 
+          onSelect={(event) => this.handleSelect(event)} 
+          bsSize="lg"  
+          title={selectedProviderName} 
+          id="bg-nested-dropdown">
+>>>>>>> 214124f386f178061979e185240e9fb131c56b85
           {checkBox.providers.map(function(provider, index){
             return(
               <MenuItem 
