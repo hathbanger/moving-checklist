@@ -33,7 +33,7 @@ class CheckListContainer extends Component {
                           checkbox={checkbox}
                           completeTask={() => dispatch(toggleTask(checkBoxes, i)) }/>
                         <td key={i + 2} colSpan="2">
-                          <h4 className="center-block">{checkbox.item}</h4>
+                          <h6 className="center-block">{checkbox.item}</h6>
                         </td>
                         <ProviderContainer 
                           key={i + 3} 
@@ -42,17 +42,17 @@ class CheckListContainer extends Component {
                           selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
                         <td key={i + 4}>
                         {  !isNaN(intTest) &&
-                          <a href={`tel:${scrubbedPhone}`} onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
-                            <h4>
+                          <a href={`tel:${scrubbedPhone}`} className="phone-number" data-invoca-campaign-id={`${checkbox.providers[parseInt(checkbox.selected_provider)].campaign_id}${checkbox.providers[parseInt(checkbox.selected_provider)].publisher_id}`} onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
+                            <h6>
                               {phone}
-                            </h4>
+                            </h6>
                           </a>
                         }
                         { isNaN(intTest) &&
                           <a href={`${link}`} target="_blank" onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
-                            <h4>
+                            <h6>
                               {scrubbedLink}
-                            </h4>
+                            </h6>
                           </a>
                         }
                         </td>

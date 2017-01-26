@@ -11,67 +11,113 @@
 
     <script type="text/javascript" src="//solutions.invocacdn.com/js/pnapi_integration-latest.min.js"></script>
 <script type="text/javascript">
-
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+var pubId = getParameterByName('clientId');
 
 var initialState = { tasks: [
-  {"item":"Phone","selected_provider":"0","providers":[{"name":"Verizon","phone":"1 (803) 649-1280"},{"name":"Xfinity","phone":"1 (233) 223-9884"},{"name":"Comcast","phone":"1 (948) 655-3344"}],"done":false, "clientId": "adnet1", "pid": "cyhSeo"},
-  {"item":"Security","selected_provider":"0","providers":[{"name":"ADT","phone":"1 (988) 389-8499"},{"name":"Brinks","phone":"1 (888) 787-8889"}],"done":false, "clientId": "adnet2", "pid": "cyhSeo"},
-  {"item":"Internet","selected_provider":"0","providers":[{"name":"Xfinity","phone":"1 (433) 432-2333"},{"name":"Comcast","phone":"https://google.com/?gid=wowowo"}],"done":false, "clientId": "adnet1", "pid": "cyhSeo"}]}
+  {
+  "item":"Phone",
+  "selected_provider":"0",
+  "providers":[
+    {"name":"Verizon","phone":"1 (803) 649-1280", "campaign_id": "verizon", "publisher_id": pubId},
+    {"name":"Xfinity","phone":"1 (233) 223-9884", "campaign_id": "adnet2", "publisher_id": pubId},
+    {"name":"Comcast","phone":"1 (948) 655-3344", "campaign_id": "comcastcyhseo", "publisher_id": pubId}],
+  "done":false, 
+  "clientId": "adnet1", 
+  "pid": pubId},
+
+  {
+  "item":"Security",
+  "selected_provider":"0",
+  "providers":[
+    {"name":"ADT","phone":"1 (988) 389-8499", "campaign_id": "adt", "publisher_id": pubId},
+    {"name":"Brinks","phone":"1 (888) 787-8889", "campaign_id": "verizoncyhseo2", "publisher_id": pubId}],
+  "done":false, 
+  "clientId": "adnet2", 
+  "pid": pubId},
+
+  {
+  "item":"Internet",
+  "selected_provider":"0",
+  "providers":[
+    {"name":"DIRECTV","phone":"1 (433) 432-2333", "campaign_id": "directv", "publisher_id": pubId},
+    {"name":"Comcast","phone":"https://google.com/?gid=wowowo", "campaign_id": "comcastcyhseo3", "publisher_id": pubId}],
+  "done":false, 
+  "clientId": "adnet1", 
+  "pid": pubId}]}
 
 
 
 
-//   console.log('invoca loaded');
-//   // <?php $campaign_id = get_field('advertiser_campaign_id') ?>
+  // console.log('invoca loaded');
+  // <?php $campaign_id = get_field('advertiser_campaign_id') ?>
   
-//   var clientId = Invoca.Tools.readUrl("clientId");
+  // var clientId = Invoca.Tools.readUrl("clientId");
 
-//   // if(!Invoca.Tools.readCookie("invocaCookie")){
-//   //   // console.log('setting cookie as its not here');
-//   //   if(clientId){
-//   //     // console.log('setting via param bc we found it in the url: ', clientId)
-//   //     Invoca.Tools.setCookie("invocaCookie", clientId , 7);
-//   //   } 
-//   //   else {
-//   //     // console.log('setting via php bc we didnt find a clientId param: ', <?php print "'".$campaign_id."'" ?>)
-//   //     Invoca.Tools.setCookie("invocaCookie", clientId, 7);
-//   //   }
+  // if(!Invoca.Tools.readCookie("invocaCookie")){
+  //   // console.log('setting cookie as its not here');
+  //   if(clientId){
+  //     // console.log('setting via param bc we found it in the url: ', clientId)
+  //     Invoca.Tools.setCookie("invocaCookie", clientId , 7);
+  //   } 
+  //   else {
+  //     // console.log('setting via php bc we didnt find a clientId param: ', <?php print "'".$campaign_id."'" ?>)
+  //     Invoca.Tools.setCookie("invocaCookie", clientId, 7);
+  //   }
 
-//   // } 
-//   // else {
-//   //   var cookie = Invoca.Tools.readCookie("invocaCookie");
-//   //   // console.log('we read a cookie so we didnt set it again: ', cookie);
-//   // }
+  // } 
+  // else {
+  //   var cookie = Invoca.Tools.readCookie("invocaCookie");
+  //   // console.log('we read a cookie so we didnt set it again: ', cookie);
+  // }
 
-//   console.log(initialState.tasks)
+  // console.log(initialState.tasks)
 
-//   var numbersToReplace = {}
+  var numbersToReplace = {}
 
-//   for(var i = 0; i < initialState.tasks.length; i++){
-//     console.log(initialState.tasks[i])
+  for(var i = 0; i < initialState.tasks.length; i++){
+    console.log(initialState.tasks[i])
 
-//     for(var k = 0; k < initialState.tasks[i].providers.length; k++){
-//       var toStr = initialState.tasks[i].providers[k].phone.toString()
-//       console.log(toStr)
-//       numbersToReplace[toStr] = initialState.tasks[i].clientId
-//     }
-//   }
+    for(var k = 0; k < initialState.tasks[i].providers.length; k++){
+      var toStr = initialState.tasks[i].providers[k].phone.toString()
+      // console.log(toStr)
+      numbersToReplace[toStr] = initialState.tasks[i].clientId
+    }
+  }
 
 // console.log(numbersToReplace)
 
-// if(numbersToReplace){
-//   Invoca.PNAPI.integration({
-//     networkId: 1219,
-//     numberToReplace: numbersToReplace
-//     // campaignIdOverrideParam: 'clientId'
-//   });
+if(numbersToReplace){
+  Invoca.PNAPI.integration({
+    networkId: 1219,
+    numberSelector: ".phone-number",
+    debugMode: true,
+    numberToReplace: {"1 (948) 655-3344": 'verizoncyhseo'}
+    // onCompleteOverride: callComplete()
+  });
+}
+
+// function callComplete(batchId, mapping){
+//   // console.log(e)
+//   console.log('completed call invoca')
+//   console.log(batchId)
+//   console.log(mapping)
 // }
 
-//   console.log(Invoca.PNAPI)
-
-//   Invoca.PNAPI.onInvocaResponse = function(o, e) {
-//     console.log(e)
-//   }
+  Invoca.PNAPI.onInvocaResponse = function(o, e) {
+    console.log("e: ")
+    console.log(e)
+  }
 
 
 
