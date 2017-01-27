@@ -10,6 +10,14 @@ class CheckListContainer extends Component {
     return (
       <div>
         <Table bordered condensed responsive className="text-center">  
+          <thead>
+             <tr>
+                <th>Checkbox</th>
+                <th>Service</th>
+                <th>Brand (Select)</th>
+                <th>Contact</th>
+             </tr>
+          </thead>        
           <tbody>
             {this.props.checkBoxes.map(function(checkbox, i){
                 let phone = checkbox.providers[parseInt(checkbox.selected_provider)].phone
@@ -32,8 +40,8 @@ class CheckListContainer extends Component {
                           indicator={ i }
                           checkbox={checkbox}
                           completeTask={() => dispatch(toggleTask(checkBoxes, i)) }/>
-                        <td key={i + 2} colSpan="2">
-                          <h6 className="center-block">{checkbox.item}</h6>
+                        <td key={i + 2} colSpan="1">
+                          <h6 className="center-block text-left">{checkbox.item}</h6>
                         </td>
                         <ProviderContainer 
                           key={i + 3} 

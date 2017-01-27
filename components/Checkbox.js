@@ -3,7 +3,7 @@ export default class Checkbox extends Component {
   render() {
     const { indicator, checked } = this.props
     return (
-        <td>
+        <td colSpan="1" key={this.props.key}>
           <input 
             type="checkbox"  
             onChange={(event) => this.handleSelection(indicator)} 
