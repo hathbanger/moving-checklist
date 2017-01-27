@@ -15,7 +15,7 @@ class CheckListContainer extends Component {
                 <th>Checkbox</th>
                 <th>Service</th>
                 <th>Brand (Select)</th>
-                <th>Contact</th>
+                <th>Order</th>
              </tr>
           </thead>        
           <tbody>
