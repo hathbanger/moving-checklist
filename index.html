@@ -9,7 +9,7 @@
   <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 
-    <script type="text/javascript" src="//solutions.invocacdn.com/js/pnapi_integration-latest.min.js"></script>
+<!--     <script type="text/javascript" src="//solutions.invocacdn.com/js/pnapi_integration-latest.min.js"></script> -->
 <script type="text/javascript">
 // function getParameterByName(name, url) {
 //     if (!url) {
@@ -84,41 +84,41 @@ var initialState = { tasks: [
 
   // console.log(initialState.tasks)
 
-  var numbersToReplace = {}
+//   var numbersToReplace = {}
 
-  for(var i = 0; i < initialState.tasks.length; i++){
-    console.log(initialState.tasks[i])
+//   for(var i = 0; i < initialState.tasks.length; i++){
+//     console.log(initialState.tasks[i])
 
-    for(var k = 0; k < initialState.tasks[i].providers.length; k++){
-      var toStr = initialState.tasks[i].providers[k].phone.toString()
-      // console.log(toStr)
-      numbersToReplace[toStr] = initialState.tasks[i].clientId
-    }
-  }
+//     for(var k = 0; k < initialState.tasks[i].providers.length; k++){
+//       var toStr = initialState.tasks[i].providers[k].phone.toString()
+//       // console.log(toStr)
+//       numbersToReplace[toStr] = initialState.tasks[i].clientId
+//     }
+//   }
 
-// console.log(numbersToReplace)
+// // console.log(numbersToReplace)
 
-if(numbersToReplace){
-  Invoca.PNAPI.integration({
-    networkId: 1219,
-    numberSelector: ".phone-number",
-    debugMode: true,
-    numberToReplace: {"1 (948) 655-3344": 'verizoncyhseo'}
-    // onCompleteOverride: callComplete()
-  });
-}
-
-// function callComplete(batchId, mapping){
-//   // console.log(e)
-//   console.log('completed call invoca')
-//   console.log(batchId)
-//   console.log(mapping)
+// if(numbersToReplace){
+//   Invoca.PNAPI.integration({
+//     networkId: 1219,
+//     numberSelector: ".phone-number",
+//     debugMode: true,
+//     numberToReplace: {"1 (948) 655-3344": 'verizoncyhseo'}
+//     // onCompleteOverride: callComplete()
+//   });
 // }
 
-  Invoca.PNAPI.onInvocaResponse = function(o, e) {
-    console.log("e: ")
-    console.log(e)
-  }
+// // function callComplete(batchId, mapping){
+// //   // console.log(e)
+// //   console.log('completed call invoca')
+// //   console.log(batchId)
+// //   console.log(mapping)
+// // }
+
+//   Invoca.PNAPI.onInvocaResponse = function(o, e) {
+//     console.log("e: ")
+//     console.log(e)
+//   }
 
 
 

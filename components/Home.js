@@ -13,15 +13,17 @@ export default class Home extends Component {
   }
   render() {
     const { dispatch, errorMessage, tasks } = this.props
-    console.log('this.tasks: ', this.props)
     const progress = (this.props.tasks.filter(this.isDone).length / this.props.tasks.length) * 100
     return (
       <div className="container">
         <Col md={12}>
             { this.props.tasks &&
               <div>
-              <ProgressBar now={progress} />         
-              <CheckListContainer checkBoxes={this.props.tasks} dispatch={dispatch} />
+              <ProgressBar 
+                now={progress} />         
+              <CheckListContainer 
+                checkBoxes={this.props.tasks} 
+                dispatch={dispatch} />
               </div>
             }     
         </Col>       
