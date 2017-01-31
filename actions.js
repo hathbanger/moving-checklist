@@ -36,12 +36,9 @@ export const SELECT_PROVIDER_SUCCESS = 'SELECT_PROVIDER_SUCCESS'
 export const SELECT_PROVIDER_ATTEMPT = 'SELECT_PROVIDER_ATTEMPT'
 
 export function selectedProvider(tasks, task, providerId) {
-  console.log('selected provider fired from action!')
-  console.log(tasks, task, providerId)
   return dispatch => {
     let attempt = dispatch(selectedProviderAttempt(tasks, task, providerId))   
     if(attempt.tasks){
-      console.log("attempt: ",attempt)
       return dispatch(selectedProviderSuccess(attempt))
     } 
   }

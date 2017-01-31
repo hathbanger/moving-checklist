@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import CheckListContainer from '../containers/CheckListContainer'
 import PhoneOrder from '../components/PhoneOrder'
+import LinkOrder from '../components/LinkOrder'
 import { ProgressBar, Col } from 'react-bootstrap';
 import { toggleTask, selectedProvider } from '../actions'
 
