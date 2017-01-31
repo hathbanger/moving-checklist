@@ -1,15 +1,13 @@
-import React, { Component, PropTypes } from 'react'
-export default class TableHead extends Component {
-  render() {
-    return (
-          <thead>
-             <tr>
-                <th>Checkbox</th>
-                <th>Service</th>
-                <th>Brand (Select)</th>
-                <th>Order</th>
-             </tr>
-          </thead> 
-    )
-  }
-}
+import React from 'react'
+
+const TableHead = () =>
+        <thead>
+           <tr>
+              <th>Checkbox</th>
+              <th>Service</th>
+              <th>Brand (Select)</th>
+              <th>Order</th>
+           </tr>
+        </thead> 
+
+export default TableHead
