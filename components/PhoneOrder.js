@@ -1,24 +1,17 @@
-import React, { Component, PropTypes } from 'react'
-export default class PhoneOrder extends Component {
-  render() {
-  	const { checkBox, scrubbedPhone, ogPhone } = this.props
-  	let provider = checkBox.providers[parseInt(checkBox.selected_provider)]
-    return (
+import React from 'react'
+
+
+const PhoneOrder = ({checkBox, provider, scrubbedPhone, ogPhone, toggleTask}) =>
 	        <a 
 	          href={`tel:${scrubbedPhone}`} 
 	          className="phone-number" 
 	          data-invoca-campaign-id={`${provider.campaign_id}${provider.publisher_id}`} 
-	          onClick={(event) => this.handleClick()}>
+	          onClick={toggleTask}>
 		          <h6>
 		            {ogPhone}
 		          </h6>
 	        </a>
-    )
-  }
 
-  handleClick(e){
-  	this.props.toggleTask();
-  }
-}
+export default PhoneOrder
 
 

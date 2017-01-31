@@ -12,6 +12,7 @@ class ContactContainer extends Component {
     let phone = checkBox.providers[parseInt(checkBox.selected_provider)].phone
 	let scrubbedPhone = phone.replace(/[`~!@#$%^&*()_|+\-=÷¿?;:'",.<>\{\}\[\]\\\/\s]/gi, '');
 	let intTest = parseInt(scrubbedPhone)
+	let provider = checkBox.providers[parseInt(checkBox.selected_provider)]
 	if (!intTest) {
 	  link = phone
 	  var linkArr = link.split("://")[1]
@@ -26,6 +27,7 @@ class ContactContainer extends Component {
 	      	<PhoneOrder
 	      		checkBox={checkBox}
 	      		ogPhone={phone}
+	      		provider={provider}
 	      		scrubbedPhone={scrubbedPhone}
 	      		indicator={indicator}
 	      		toggleTask={(event) => this.handleToggle(indicator)} />
