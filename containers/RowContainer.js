@@ -4,17 +4,20 @@ import CheckBox from '../components/Checkbox'
 import ContactContainer from './ContactContainer'
 import ProviderContainer from './ProviderContainer'
 import ServiceCell from '../components/ServiceCell'
+import IconCell from '../components/IconCell'
 
 class RowContainer extends Component {
   render() {
     const { dispatch, key, indicator, checkBox, checkBoxes } = this.props   
     return (
           <tr>
+            <IconCell
+              checkBox={checkBox}/>
             <CheckBox
               indicator={ indicator }
               checkBox={checkBox}
               completeTask={() => dispatch(toggleTask(checkBoxes, indicator)) }/>
-            <ServiceCell  
+            <ServiceCell
            	  checkBox={checkBox}/>
             <ProviderContainer 
               dispatch={dispatch} 
