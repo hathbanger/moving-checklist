@@ -39,7 +39,6 @@ export function selectedProvider(tasks, task, providerId) {
   return dispatch => {
     let attempt = dispatch(selectedProviderAttempt(tasks, task, providerId))   
     if(attempt.tasks){
-      console.log("attempt: ",attempt)
       return dispatch(selectedProviderSuccess(attempt))
     } 
   }

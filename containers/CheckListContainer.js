@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import { toggleTask, selectedProvider } from '../actions'
-import CheckBox from '../components/Checkbox'
-import ProviderContainer from './ProviderContainer'
-import { Table, Glyphicon } from 'react-bootstrap';
+import TableHead from '../components/TableHead'
+import RowContainer from './RowContainer'
+import { Table } from 'react-bootstrap';
 
 class CheckListContainer extends Component {
   render() {
@@ -10,53 +9,16 @@ class CheckListContainer extends Component {
     return (
       <div>
         <Table bordered condensed responsive className="text-center">  
+          <TableHead />        
           <tbody>
-            {this.props.checkBoxes.map(function(checkbox, i){
-                let phone = checkbox.providers[parseInt(checkbox.selected_provider)].phone
-                let scrubbedPhone = phone.replace(/[`~!@#$%^&*()_|+\-=÷¿?;:'",.<>\{\}\[\]\\\/\s]/gi, '');
-                let intTest = parseInt(scrubbedPhone)
-                let link = ""
-                let scrubbedLink = ""
-                if (!intTest) {
-                  link = phone
-                  var linkArr = link.split("://")[1]
-                  scrubbedLink = linkArr.split("?")[0]
-                  if (scrubbedLink[scrubbedLink.length - 1] == "/"){
-                    scrubbedLink = scrubbedLink.slice(0, scrubbedLink.length - 1)
-                  }
-                }            
+            {checkBoxes.map(function(checkbox, i){         
                 return (
-                      <tr key={i + 1}>
-                        <CheckBox
-                          key={ i }
-                          indicator={ i }
-                          checkbox={checkbox}
-                          completeTask={() => dispatch(toggleTask(checkBoxes, i)) }/>
-                        <td key={i + 2} colSpan="2">
-                          <h6 className="center-block">{checkbox.item}</h6>
-                        </td>
-                        <ProviderContainer 
-                          key={i + 3} 
-                          dispatch={dispatch} 
-                          checkBox={checkbox}
-                          selectedProvider={ event => dispatch(selectedProvider(checkBoxes, i, event))} />
-                        <td key={i + 4}>
-                        {  !isNaN(intTest) &&
-                          <a href={`tel:${scrubbedPhone}`} className="phone-number" data-invoca-campaign-id={`${checkbox.providers[parseInt(checkbox.selected_provider)].campaign_id}${checkbox.providers[parseInt(checkbox.selected_provider)].publisher_id}`} onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
-                            <h6>
-                              {phone}
-                            </h6>
-                          </a>
-                        }
-                        { isNaN(intTest) &&
-                          <a href={`${link}`} target="_blank" onClick={() => dispatch(toggleTask(checkBoxes, i)) }>
-                            <h6>
-                              {scrubbedLink}
-                            </h6>
-                          </a>
-                        }
-                        </td>
-                      </tr>
+                  <RowContainer
+                    key={i}
+                    indicator={i}
+                    checkBox={checkbox}
+                    checkBoxes={checkBoxes}
+                    dispatch={dispatch} />
                   )    
               })} 
           </tbody>
@@ -72,4 +34,3 @@ CheckListContainer.propTypes = {
 
 
 export default CheckListContainer
-

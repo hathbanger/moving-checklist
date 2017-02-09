@@ -6,26 +6,26 @@
     <title>Redux Auth</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 
-    <script type="text/javascript" src="//solutions.invocacdn.com/js/pnapi_integration-latest.min.js"></script>
+<!--     <script type="text/javascript" src="//solutions.invocacdn.com/js/pnapi_integration-latest.min.js"></script> -->
 <script type="text/javascript">
-function getParameterByName(name, url) {
-    if (!url) {
-      url = window.location.href;
-    }
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-var pubId = getParameterByName('clientId');
+// function getParameterByName(name, url) {
+//     if (!url) {
+//       url = window.location.href;
+//     }
+//     name = name.replace(/[\[\]]/g, "\\$&");
+//     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+//         results = regex.exec(url);
+//     if (!results) return null;
+//     if (!results[2]) return '';
+//     return decodeURIComponent(results[2].replace(/\+/g, " "));
+// }
+var pubId = "adnet"
 
 var initialState = { tasks: [
-<<<<<<< HEAD
   {
   "item":"Phone",
   "selected_provider":"0",
+  "icon": "https://www.connectyourhome.com/wp-content/uploads/2017/02/televisions.png",
   "providers":[
     {"name":"Verizon","phone":"1 (803) 649-1280", "campaign_id": "verizon", "publisher_id": pubId},
     {"name":"Xfinity","phone":"1 (233) 223-9884", "campaign_id": "adnet2", "publisher_id": pubId},
@@ -37,6 +37,7 @@ var initialState = { tasks: [
   {
   "item":"Security",
   "selected_provider":"0",
+  "icon": "https://www.connectyourhome.com/wp-content/uploads/2017/02/passkey.png",
   "providers":[
     {"name":"ADT","phone":"1 (988) 389-8499", "campaign_id": "adt", "publisher_id": pubId},
     {"name":"Brinks","phone":"1 (888) 787-8889", "campaign_id": "verizoncyhseo2", "publisher_id": pubId}],
@@ -47,17 +48,14 @@ var initialState = { tasks: [
   {
   "item":"Internet",
   "selected_provider":"0",
+  "icon": "https://www.connectyourhome.com/wp-content/uploads/2017/02/laptop-computer.png",
   "providers":[
     {"name":"DIRECTV","phone":"1 (433) 432-2333", "campaign_id": "directv", "publisher_id": pubId},
     {"name":"Comcast","phone":"https://google.com/?gid=wowowo", "campaign_id": "comcastcyhseo3", "publisher_id": pubId}],
   "done":false, 
   "clientId": "adnet1", 
   "pid": pubId}]}
-=======
-  {"item":"Phone","selected_provider":"0","providers":[{"name":"VerizonVerizonVerizonVerizonVerizonVerizon","phone":"1 (803) 649-1280"},{"name":"Xfinity","phone":"1 (233) 223-9884"},{"name":"Comcast","phone":"1 (948) 655-3344"}],"done":false, "clientId": "adnet1", "pid": "cyhSeo"},
-  {"item":"Security","selected_provider":"0","providers":[{"name":"ADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADTADT","phone":"1 (988) 389-8499"},{"name":"Brinks","phone":"1 (888) 787-8889"}],"done":false, "clientId": "adnet2", "pid": "cyhSeo"},
-  {"item":"Internet","selected_provider":"0","providers":[{"name":"Xfinity","phone":"1 (433) 432-2333"},{"name":"Comcast","phone":"https://google.com/?gid=wowowo"}],"done":false, "clientId": "adnet1", "pid": "cyhSeo"}]}
->>>>>>> 214124f386f178061979e185240e9fb131c56b85
+
 
 
 
@@ -86,41 +84,41 @@ var initialState = { tasks: [
 
   // console.log(initialState.tasks)
 
-  var numbersToReplace = {}
+//   var numbersToReplace = {}
 
-  for(var i = 0; i < initialState.tasks.length; i++){
-    console.log(initialState.tasks[i])
+//   for(var i = 0; i < initialState.tasks.length; i++){
+//     console.log(initialState.tasks[i])
 
-    for(var k = 0; k < initialState.tasks[i].providers.length; k++){
-      var toStr = initialState.tasks[i].providers[k].phone.toString()
-      // console.log(toStr)
-      numbersToReplace[toStr] = initialState.tasks[i].clientId
-    }
-  }
+//     for(var k = 0; k < initialState.tasks[i].providers.length; k++){
+//       var toStr = initialState.tasks[i].providers[k].phone.toString()
+//       // console.log(toStr)
+//       numbersToReplace[toStr] = initialState.tasks[i].clientId
+//     }
+//   }
 
-// console.log(numbersToReplace)
+// // console.log(numbersToReplace)
 
-if(numbersToReplace){
-  Invoca.PNAPI.integration({
-    networkId: 1219,
-    numberSelector: ".phone-number",
-    debugMode: true,
-    numberToReplace: {"1 (948) 655-3344": 'verizoncyhseo'}
-    // onCompleteOverride: callComplete()
-  });
-}
-
-// function callComplete(batchId, mapping){
-//   // console.log(e)
-//   console.log('completed call invoca')
-//   console.log(batchId)
-//   console.log(mapping)
+// if(numbersToReplace){
+//   Invoca.PNAPI.integration({
+//     networkId: 1219,
+//     numberSelector: ".phone-number",
+//     debugMode: true,
+//     numberToReplace: {"1 (948) 655-3344": 'verizoncyhseo'}
+//     // onCompleteOverride: callComplete()
+//   });
 // }
 
-  Invoca.PNAPI.onInvocaResponse = function(o, e) {
-    console.log("e: ")
-    console.log(e)
-  }
+// // function callComplete(batchId, mapping){
+// //   // console.log(e)
+// //   console.log('completed call invoca')
+// //   console.log(batchId)
+// //   console.log(mapping)
+// // }
+
+//   Invoca.PNAPI.onInvocaResponse = function(o, e) {
+//     console.log("e: ")
+//     console.log(e)
+//   }
 
 
 
